@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: white;
+}
+
+.section {
+  background-color: red;
+}
+.container {
+  background-color: aqua;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+.wrapper {
+  background-color: blueviolet;
+  padding-block: 24px;
+}

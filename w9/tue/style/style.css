@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.section{
+    position:relative
+}
+.container{
+    margin-inline: auto;
+    max-width: 60rem;
+    padding-inline: 1.5rem
+    background-color; antiqure
+    position: relative;
+}
+#section1{
+.wrapper{
+    padding-block: background-color: blue;
+}
+.square {
+  width: 12.5rem;
+  aspect-ratio: 1/1;
+  &:nth-of-type(1) {
+    background-color: red;
+    position:relative
+    top: 50px;
+    left: 50px;
+
+  }
+  &:nth-of-type(2) {
+    background-color: red;
+    position:absolute
+    bottom: 50px
+    right:25px
+    background-color:yellow
+     
+  }
+  &:nth-of-type(3) {
+    background-color: pink
+  }
+}
+
+ 

@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.section {
+  background-color: rgb(249, 249, 249);
+  /* background-color: red; */
+}
+
+.container {
+  /* background-color: green; */
+  max-width: 1328px;
+  margin-inline: auto;
+  padding-inline: 64px;
+}
+
+.wrapper {
+  /* background-color: blue; */
+  padding-block: 64px;
+}
+
+.button {
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: rgb(29, 29, 29);
+  padding: 8px 16px;
+  border-radius: 25px;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+}
+.button--type-text {
+  background-color: unset;
+  color: cornflowerblue;
+  padding-inline: 0;
+}
+//상단 네비
+.nav {
+  background-color: rgb(249, 249, 249);
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  border: 1px solid black;
+}
+.nav .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-block: 13px;
+}
+.nav a {
+  color: black;
+  text-decoration: none;
+}
+.nav__menuWrapper {
+  display: flex;
+  gap: 24px;
+  align-items: baseline;
+}
+
+.main__media {
+  background-color: rgb(249, 249, 249);
+  overflow: hidden;
+}
+.main__media img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+//움짤
+#hero1 {
+  text-align: center;
+}
+#hero1 .button {
+  margin-inline: auto;
+}
+#hero1 .main__text {
+  max-width: 1328px;
+  margin-inline: auto;
+  // display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-block: 40px;
+  // margin-inline: auto;
+  // max-width: 600px;
+  // margin-bottom: 24px;
+}
+#hero1 .main__media {
+  aspect-ratio: 16/9;
+}
+#hero1 h2 {
+  margin-bottom: 16px;
+}
+#hero1 p {
+  margin-bottom: 24px;
+}
+//타이포그래피
+.main__text__buttonWrapper a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+#hero2 {
+  background-color: rgb(216, 216, 216);
+  border: 1px solid black;
+}
+#hero2 .wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+#hero2 .wrapper > * {
+  flex: 5;
+}
+#hero2 .main__text__buttonWrapper {
+  display: flex;
+  gap: 16px;
+}
+#hero2 .main__media {
+  aspect-ratio: 4/4;
+}
+#hero2 h2 {
+  margin-bottom: 20px;
+}
+// #hero2 p {
+//   max-width: 40ch;
+//   margin-bottom: 24px;
+// }
+//투디 모션
+#hero3 {
+  background-color: rgb(216, 216, 216);
+  border: 1px solid black;
+}
+#hero3 .wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+#hero3 .wrapper > * {
+  flex: 1;
+}
+#hero3 .main__text__buttonWrapper {
+  display: flex;
+  gap: 16px;
+}
+#hero3 .main__media {
+  aspect-ratio: 4/4;
+}
+#hero3 h2 {
+  margin-bottom: 16px;
+}
+#hero3 p {
+  max-width: 40ch;
+  margin-bottom: 24px;
+}
+//쓰리디 모션
+#hero4 {
+  background-color: rgb(216, 216, 216);
+  border: 1px solid black;
+}
+#hero4 .wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+#hero4 .wrapper > * {
+  flex: 1;
+}
+#hero4 .main__text__buttonWrapper {
+  display: flex;
+  gap: 16px;
+}
+#hero4 .main__media {
+  aspect-ratio: 4/4;
+}
+#hero4 h2 {
+  margin-bottom: 16px;
+}
+#hero4 p {
+  max-width: 40ch;
+  margin-bottom: 24px;
+}
+
+// 5 about me
+#hero5 {
+  background-color: rgb(249, 249, 249);
+}
+#hero5 .wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+#hero5 .wrapper > * {
+  flex: 1;
+}
+
+#hero5 h2 {
+  margin-bottom: 16px;
+}
+#hero5 p {
+  max-width: 300ch;
+  margin-bottom: 24px;
+  color: rgb(85, 84, 84);
+}
+//foot
+.foot {
+  background-color: rgb(249, 249, 249);
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  border: 1px solid black;
+}
+.foot .wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  padding-block: 13px;
+}
+.foot__menuWrapper {
+  flex-direction: row-reverse;
+  display: flex;
+  gap: 50px;
+  align-items: baseline;
+}
+
+// font_nav
+.section .nav__logo {
+  font-family: "Bruno Ace", cursive;
+  display: flex;
+  gap: 16px;
+}
+
+.section .nav__menuWrapper {
+  font-family: "Bruno Ace", cursive;
+  display: flex;
+  gap: 16px;
+}
+
+//section
+.section .main__text {
+  font-family: "Playfair Display", serif;
+  // display: flex;
+  gap: 16px;
+}
+
+//font_foot
+.section .foot__logo {
+  font-family: "Bruno Ace", cursive;
+  display: flex;
+  gap: 16px;
+}
+
+.section .foot__menuWrapper {
+  font-family: "Bruno Ace", cursive;
+  display: flex;
+  gap: 16px;
+}
