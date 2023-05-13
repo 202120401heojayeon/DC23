@@ -127,6 +127,26 @@
 //   max-width: 40ch;
 //   margin-bottom: 24px;
 // }
+@media (width<53.125rem) {
+  .wrapper {
+    display: block;
+    text-align: center;
+    p {
+      margin-inline: auto;
+    }
+  }
+  .main {
+    &__text {
+      margin-bottom: 2.25rem;
+      &__buttonWrapper {
+        margin-inline: auto;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+    }
+  }
+}
 //투디 모션
 #hero3 {
   background-color: rgb(216, 216, 216);
