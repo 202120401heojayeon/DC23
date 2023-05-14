@@ -63,6 +63,7 @@ img {
   -o-object-fit: cover;
      object-fit: cover;
   filter: grayscale(100%);
+  transition: filter 500ms ease;
 }
 .card__text {
   padding: 1rem;

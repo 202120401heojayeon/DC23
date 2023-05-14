@@ -70,6 +70,7 @@ img {
     aspect-ratio: 16 / 9;
     object-fit: cover;
     filter: grayscale(100%);
+    transition: filter 500ms ease;
   }
   &__text {
     padding: 1rem;
