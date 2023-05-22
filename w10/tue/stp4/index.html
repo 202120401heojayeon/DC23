@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <script></script>
+    <title>stp4</title>
+    <style>
+      .container {
+        margin-inline: auto;
+        display: flex;
+        justify-content: center;
+        gap: 16px;
+      }
+      .box {
+        width: 12.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1/1;
+        background-color: beige;
+        border: 0.0625rem solid #000;
+        transition: background-color 250ms;
+         ease-in-out;
+      }
+      .box:hover {
+        background-color: bisque;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="box1" class="box">box1</div>
+      <div id="box2" class="box">box2</div>
+      <div id="box3" class="box">box3</div>
+    </div>
+  </body>
+  <script>
+    console.log(document);
+    console.log(document.getElementById("box1"));
+    console.log(document.getElementById("box"));
+  </script>
+</html>
