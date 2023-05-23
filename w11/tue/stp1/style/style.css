@@ -1,6 +1,5 @@
 .material-symbols-rounded {
-  font-variation-settings: "FILL" 0, "wght" 400,
-    "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
 * {
@@ -24,10 +23,7 @@ body {
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    22.5rem
-  );
+  grid-template-columns: repeat(auto-fill, 22.5rem);
   justify-content: center;
   grid-auto-rows: 1fr;
   gap: 2rem;
@@ -40,13 +36,11 @@ body {
   min-width: 15rem;
   background-color: oklch(98% 0.013 322);
   border: 1px solid oklch(83% 0.018 308);
-  transition: background-color 500ms ease-out,
-    box-shadow 500ms ease-out;
+  transition: background-color 500ms ease-out, box-shadow 500ms ease-out;
 }
 .card-selected {
   background-color: oklch(97% 0.012 313);
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3),
-    0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
 }
 .card-selected .card__imgWrap:before {
   opacity: 0.25;
@@ -118,7 +112,7 @@ body {
   width: 100%;
   max-height: 11.75rem;
   -o-object-fit: cover;
-  object-fit: cover;
+     object-fit: cover;
 }
 .card__bottom {
   display: flex;
@@ -161,8 +155,8 @@ body {
   line-height: 1.25rem;
   text-transform: capitalize;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 .button--type-outline {
   background-color: unset;
