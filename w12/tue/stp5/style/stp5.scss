@@ -39,9 +39,23 @@ section {
 }
 
 .diagonal {
-  background: linear-gradient(
-    45deg in oklab,
-    oklch(70% 0.5 340) 0%,
-    oklch(90% 0.5 200) 100%
-  ); //그라디언트쓰는법
+  position: relatives;
+  background-color: darkgray;
+  isolation: isolate; //그라디언트쓰는법
+  &::after {
+    content: "";
+    position: absolute; //나라는 녀석을 내 위치에 있지 않겠다 하지만 누구에게는 속박받고 싶어. 그래서 앱솔로트가 부모요소에서 스탭틱이 아닌 요소로 간다
+    background: linear-gradient(
+        //     45deg in oklab,
+        //     oklch(70% 0.5 340) 0%,
+        //     oklch(90% 0.5 200) 100%
+        //   );
+    // top: 0;
+    // right: 0;
+    // left: 0;
+    // bottom: 0;
+    inset: 0; //위에 네가지를 하나로 표현
+    transform: skewY(-5deg);
+    z-index: -1; //5도면 deg를 넣어줘야함
+  } //기울기
 }

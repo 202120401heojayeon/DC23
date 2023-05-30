@@ -36,5 +36,14 @@ section:nth-of-type(odd) {
 }
 
 .diagonal {
+  position: relatives;
   background: linear-gradient(45deg in oklab, oklch(70% 0.5 340) 0%, oklch(90% 0.5 200) 100%);
+  isolation: isolate;
+}
+.diagonal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: skewY(-5deg);
+  z-index: -1;
 }
