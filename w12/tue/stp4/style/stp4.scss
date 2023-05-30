@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  font-family: system-ui;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+main {
+  margin-inline: auto;
+  //   padding-inline: 2rem;
+  // sh는 내가 고른 서체의 0이 하나 들어갈 수 있는 너비 ex) 0이 60개 들어갈 수 있다
+  width: min(
+    70ch,
+    100%-2 * 32p
+  ); //위에 두줄을 하나로 할 수 있음
+}
+
+img,
+svg,
+video,
+iframe {
+  display: block;
+  max-width: 100%; //이미지 사이즈 줄이는 방법
+}
