@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      content="IE=edge"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="style/style.css"
+    />
+    <title>Document</title>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-interactivity@latest/dist/lottie-interactivity.min.js"></script>
+  </head>
+  <body>
+    <div class="section">
+      <div class="container">
+        <h2>로띠 예제</h2>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <lottie-player
+          id="lottie1"
+          class="lottie"
+          src="https://assets1.lottiefiles.com/packages/lf20_RM6elkeGwr.json"
+          background="transparent"
+          speed="1"
+          style="width: 300px; height: 300px"
+          loop
+          autoplay
+        ></lottie-player>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <h2>로띠 호버</h2>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <lottie-player
+          id="lottie2"
+          class="lottie"
+          src="https://assets1.lottiefiles.com/packages/lf20_RM6elkeGwr.json"
+          background="transparent"
+          speed="1"
+          style="width: 300px; height: 300px"
+          loop
+          hover 
+          <!-- //호버해서 움직이게 하는거  -->, autoplay 없애기
+        ></lottie-player>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <h2>로띠 고급</h2>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <h2>로띠 고급</h2>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <lottie-player id="lottie3" class="lottie"
+         src="https://assets1.lottiefiles.com/packages/lf20_RM6elkeGwr.json";>"></lottie-player>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <h2>로띠 CLICK</h2>
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <lottie-player id="lottie4" class="lottie
+        " src="https://assets1.lottiefiles.com/packages/lf20_RM6elkeGwr.json" ;>"></lottie-player>
+       </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <h2>로띠 고급</h2>
+      </div>
+    </div>
+    
+  </body>
+  <script>
+    LottieInteractivity.create({
+      mode: 'scroll',
+      player: '#lottie3',
+      actions: [
+          {
+            visibility: [0,1],
+            type: 'seek',
+            frames: [0, 29],
+          },
+          
+        ],
+    });
+    LottieInteractivity.create({
+    player:'#lottie4',
+    mode:"chain",
+    actions: [
+        {
+            state: 'click',
+            forceFlag: true,
+            transition: 'click',
+            count: 5
+        },
+        {
+            path: 'https://assets1.lottiefiles.com/packages/lf20_ISbOsd.json',
+            frames: 'confetti',
+            state: 'autoplay',
+            reset: true,
+            transition: 'onComplete'
+        }
+    ]
+});
+    </script>
+</html>
+
+
+
+

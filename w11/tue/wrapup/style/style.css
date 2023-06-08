@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.section {
+  background-color: antiquewhite;
+}
+
+.section:nth-child(even) {
+  background-color: darkgray;
+  background-color: aqua;
+}
+
+.container {
+  margin-inline: auto;
+  max-width: 37.5rem;
+  min-height: max(100dvh, 37.5rem);
+  background-color: cadetblue;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lottie {
+  max-width: 100%;
+}
+
+.lottie1 {
+  width: 18.75rem;
+}
