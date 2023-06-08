@@ -7,21 +7,40 @@ html {
 }
 
 body {
+  overflow-y: hidden;
   width: 100vw;
   height: 100dvh;
-  overflow: hidden;
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: system-ui;
   font-size: 1.125rem;
   line-height: 1.5;
+}
+body::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: aqua;
+  position: fixed;
+  bottom: 200px;
 }
 
 main {
   width: 100%;
-  height: 100dvh;
-  overflow-x: hidden;
+  height: 100%;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
+}
+
+.animTrigger {
+  position: relative;
+}
+.animTrigger::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  background-color: fuchsia;
+  position: absolute;
+  top: 75%;
 }
 
 section {
@@ -30,93 +49,64 @@ section {
 }
 
 section:nth-child(even) {
-  background-color: dimgrey;
+  background-color: grey;
 }
 
 .wrapper {
   width: min(60ch, 100% - 4rem);
-  min-height: max(50rem, 100dvh);
+  min-height: max(600px, 100dvh);
   margin-inline: auto;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .content {
   border: 1px solid red;
 }
 
-img,
-svg,
-video {
-  max-width: 100%;
-  display: block;
-}
-
-#s1 .animTarget {
+#section2 .animTarget {
   transform: scale(0);
-  transition: transform 500ms ease-in-out;
+  transition: transform 500ms ease-out;
 }
-#s1.triggered .animTarget {
+#section2.triggered .animTarget {
   transform: scale(1);
 }
 
-#s2 .animTarget {
-  transform: scale(0);
-  transition: transform 500ms ease-in-out;
-}
-#s2.triggered .animTarget {
-  transform: scale(1);
-}
-
-#s3 .animTarget {
+#section3 .content .animTarget {
   transform: translateX(100vw);
+  transition: transform 500ms ease-out;
 }
-#s3 .animTarget:nth-child(1) {
-  transition: transform 500ms ease-in-out;
-}
-#s3 .animTarget:nth-child(2) {
-  transition: transform 450ms ease-in-out 50ms;
-}
-#s3.triggered .animTarget {
+#section3 .content.triggered .animTarget {
   transform: translateX(0);
 }
 
-#s4 .animTarget:nth-child(1) {
-  transform: translateY(-100vw);
-  transition: transform 500ms ease-in-out;
+#section4 .content.animTarget {
+  transition: background-color 500ms ease-out, border 500ms ease-out;
 }
-#s4 .animTarget:nth-child(2) {
-  transform: translateY(100vw);
-  transition: transform 500ms ease-in-out;
+#section4 h2.animTarget {
+  transform: translateX(-100vw);
+  transition: transform 500ms ease-out;
 }
-#s4.triggered .animTarget {
-  transform: translateY(0);
+#section4 p.animTarget {
+  transform: translateX(100vw);
+  transition: transform 500ms ease-out;
 }
-
-#s5 .animTarget {
-  opacity: 0;
-  transition: transform 750ms ease-out, opacity 1000ms;
+#section4.triggered .content.animTarget {
+  background-color: cornflowerblue;
+  border: 0px solid transparent;
 }
-#s5 .animTarget:nth-child(1) {
-  transform: translateY(-50px);
+#section4.triggered h2.animTarget {
+  transform: translateX(0);
 }
-#s5 .animTarget:nth-child(2) {
-  transform: translateY(50px);
-}
-#s5.triggered .animTarget {
-  opacity: 1;
-  transform: translateY(0);
+#section4.triggered p.animTarget {
+  transform: translateX(0);
 }
 
-#s6.triggered .animTarget:nth-child(1) {
+#section5.triggered .animTarget {
   animation: wiggle 2s linear infinite;
 }
-#s6.triggered .animTarget:nth-child(2) {
-  animation: wiggle 2s linear infinite reverse;
-}
 
-/* Keyframes */
 @keyframes wiggle {
   0%, 7% {
     transform: rotateZ(0);

@@ -1,3 +1,196 @@
+// * {
+//   box-sizing: border-box;
+// }
+
+// html {
+//   color-scheme: light dark;
+// }
+
+// body {
+//   width: 100vw;
+//   height: 100dvh;
+//   overflow: hidden;
+//   margin: 0;
+//   font-family: system-ui, -apple-system,
+//     BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+//     Ubuntu, Cantarell, "Open Sans",
+//     "Helvetica Neue", sans-serif;
+//   font-size: 1.125rem;
+//   line-height: 1.5;
+// }
+
+// main {
+//   width: 100%;
+//   height: 100dvh;
+//   overflow-x: hidden;
+//   overflow-y: scroll;
+//   scroll-snap-type: y mandatory;
+// }
+
+// section {
+//   scroll-snap-align: center;
+//   overflow: hidden; //
+// }
+
+// section:nth-child(even) {
+//   background-color: dimgrey;
+// }
+
+// .wrapper {
+//   width: min(60ch, 100% - 4rem); //
+//   min-height: max(50rem, 100dvh); //
+//   margin-inline: auto; //
+//   display: flex; //
+//   flex-direction: column;
+//   justify-content: center; //
+//   align-items: center; //
+// }
+
+// .content {
+//   border: 1px solid red; //
+// }
+
+// #section1 {
+//   .animTarget {
+//     transform: scale(0);
+//     transition: transform 500ms ease-in-out;
+//   }
+//   &.triggered {
+//     .animTarget {
+//       transform: scale(1);
+//     }
+//   }
+// }
+
+// #section2 {
+//   .animTarget {
+//     //
+//     transform: scale(0); //
+//     transition: transform 500ms ease-out; //
+//   }
+//   &.triggered {
+//     //
+//     .animTarget {
+//       transform: scale(1); //
+//     }
+//   }
+// }
+
+// #section3 {
+//   .content {
+//     .animTarget {
+//       transform: translateX(100vw);
+//       transition: transform 500ms ease-out;
+//     }
+//     &.triggered {
+//       .animTarget {
+//         transform: translateX(0);
+//       }
+//     }
+//   }
+// }
+
+// #section4 {
+//   .content.animTarget {
+//     transition: background-color 500ms ease-out,
+//       border 500ms ease-out;
+//   }
+//   h2.animTarget {
+//     transform: translateX(-100vw);
+//     transition: transform 500ms ease-out;
+//   }
+//   p.animTarget {
+//     transform: translateX(100vw);
+//     transition: transform 500ms ease-out;
+//   }
+//   &.triggered {
+//     .content.animTarget {
+//       background-color: cornflowerblue;
+//       border: 0px solid transparent;
+//     }
+//     h2.animTarget {
+//       transform: translateX(0);
+//     }
+//     p.animTarget {
+//       transform: translateX(0);
+//     }
+//   }
+// }
+
+// #section5 {
+//   .animTarget {
+//   }
+//   &.triggered {
+//     .animTarget {
+//       animation: wiggle 2s linear infinite;
+//     }
+//   }
+// }
+
+// @keyframes wiggle {
+//   0%,
+//   7% {
+//     transform: rotateZ(0);
+//   }
+//   15% {
+//     transform: rotateZ(-15deg);
+//   }
+//   20% {
+//     transform: rotateZ(10deg);
+//   }
+//   25% {
+//     transform: rotateZ(-10deg);
+//   }
+//   30% {
+//     transform: rotateZ(6deg);
+//   }
+//   35% {
+//     transform: rotateZ(-4deg);
+//   }
+//   40%,
+//   100% {
+//     transform: rotateZ(0);
+//   }
+// }
+
+// #section6 {
+//   &.triggered {
+//     .animTarget:nth-child(1) {
+//       animation: wiggle 2s linear infinite;
+//     }
+//     .animTarget:nth-child(2) {
+//       animation: wiggle 2s linear infinite reverse;
+//     }
+//   }
+// }
+
+// /* Keyframes */
+// @keyframes wiggle {
+//   0%,
+//   7% {
+//     transform: rotateZ(0);
+//   }
+//   15% {
+//     transform: rotateZ(-15deg);
+//   }
+//   20% {
+//     transform: rotateZ(10deg);
+//   }
+//   25% {
+//     transform: rotateZ(-10deg);
+//   }
+//   30% {
+//     transform: rotateZ(6deg);
+//   }
+//   35% {
+//     transform: rotateZ(-4deg);
+//   }
+//   40%,
+//   100% {
+//     transform: rotateZ(0);
+//   }
+// }
+
 * {
   box-sizing: border-box;
 }
@@ -7,24 +200,40 @@ html {
 }
 
 body {
+  overflow-y: hidden;
   width: 100vw;
   height: 100dvh;
-  overflow: hidden;
   margin: 0;
-  font-family: system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans",
-    "Helvetica Neue", sans-serif;
+  font-family: system-ui;
   font-size: 1.125rem;
   line-height: 1.5;
+  &::after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: aqua;
+    position: fixed;
+    bottom: 200px;
+  }
 }
 
 main {
   width: 100%;
-  height: 100dvh;
-  overflow-x: hidden;
+  height: 100%;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
+}
+
+.animTrigger {
+  position: relative;
+  &::after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: fuchsia;
+    position: absolute;
+    top: 75%;
+  }
 }
 
 section {
@@ -33,33 +242,26 @@ section {
 }
 
 section:nth-child(even) {
-  background-color: dimgrey;
+  background-color: grey;
 }
 
 .wrapper {
   width: min(60ch, 100% - 4rem);
-  min-height: max(50rem, 100dvh);
+  min-height: max(600px, 100dvh);
   margin-inline: auto;
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .content {
   border: 1px solid red;
 }
 
-img,
-svg,
-video {
-  max-width: 100%;
-  display: block;
-}
-
-#s1 {
+#section2 {
   .animTarget {
     transform: scale(0);
-    transition: transform 500ms ease-in-out;
+    transition: transform 500ms ease-out;
   }
   &.triggered {
     .animTarget {
@@ -68,85 +270,57 @@ video {
   }
 }
 
-#s2 {
-  .animTarget {
-    transform: scale(0);
-    transition: transform 500ms ease-in-out;
-  }
-  &.triggered {
+#section3 {
+  .content {
     .animTarget {
-      transform: scale(1);
+      transform: translateX(100vw);
+      transition: transform 500ms ease-out;
+    }
+    &.triggered {
+      .animTarget {
+        transform: translateX(0);
+      }
     }
   }
 }
 
-#s3 {
-  .animTarget {
+#section4 {
+  .content.animTarget {
+    transition: background-color 500ms ease-out,
+      border 500ms ease-out;
+  }
+  h2.animTarget {
+    transform: translateX(-100vw);
+    transition: transform 500ms ease-out;
+  }
+  p.animTarget {
     transform: translateX(100vw);
-  }
-  .animTarget:nth-child(1) {
-    transition: transform 500ms ease-in-out;
-  }
-  .animTarget:nth-child(2) {
-    transition: transform 450ms ease-in-out 50ms;
+    transition: transform 500ms ease-out;
   }
   &.triggered {
-    .animTarget {
+    .content.animTarget {
+      background-color: cornflowerblue;
+      border: 0px solid transparent;
+    }
+    h2.animTarget {
+      transform: translateX(0);
+    }
+    p.animTarget {
       transform: translateX(0);
     }
   }
 }
 
-#s4 {
+#section5 {
   .animTarget {
-  }
-  .animTarget:nth-child(1) {
-    transform: translateY(-100vw);
-    transition: transform 500ms ease-in-out;
-  }
-  .animTarget:nth-child(2) {
-    transform: translateY(100vw);
-    transition: transform 500ms ease-in-out;
   }
   &.triggered {
     .animTarget {
-      transform: translateY(0);
-    }
-  }
-}
-
-#s5 {
-  .animTarget {
-    opacity: 0;
-    transition: transform 750ms ease-out,
-      opacity 1000ms;
-  }
-  .animTarget:nth-child(1) {
-    transform: translateY(-50px);
-  }
-  .animTarget:nth-child(2) {
-    transform: translateY(50px);
-  }
-  &.triggered {
-    .animTarget {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-}
-
-#s6 {
-  &.triggered {
-    .animTarget:nth-child(1) {
       animation: wiggle 2s linear infinite;
     }
-    .animTarget:nth-child(2) {
-      animation: wiggle 2s linear infinite reverse;
-    }
   }
 }
 
-/* Keyframes */
 @keyframes wiggle {
   0%,
   7% {
