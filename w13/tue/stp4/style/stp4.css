@@ -13,7 +13,6 @@
 html {
   color-scheme: light dark;
   scroll-behavior: smooth;
-  background-color: gray;
 }
 
 body {
@@ -98,7 +97,7 @@ aside ol li::before {
   width: 1rem;
   height: 1rem;
   margin-top: 0.125rem;
-  transition: border-color 150ms ease-out;
+  transition: border-color 150ms ease-out, background-color 150ms ease-out;
   border: 0.125rem solid var(--onSurface);
   border-radius: 999999999px;
 }
@@ -108,8 +107,16 @@ aside ol li:hover {
 aside ol li:hover::before {
   border-color: var(--accent);
 }
+aside ol li.pressed {
+  color: var(--accent);
+}
+aside ol li.pressed::before {
+  border-color: var(--accent);
+  background-color: var(--accent);
+}
 aside a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .progressBar {
@@ -124,8 +131,9 @@ aside a {
 }
 .progressBar .indicator {
   position: absolute;
+  transform: scaleX(0);
   transform-origin: left;
-  background-color: blue;
+  background-color: var(--accent);
   inset: 0;
 }
 
@@ -162,7 +170,7 @@ footer .wrapper {
   aside ol {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 3rem;
   }
   aside ol a:first-of-type li {
