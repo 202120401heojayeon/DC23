@@ -54,3 +54,7 @@ const observer = new IntersectionObserver(
 pages.forEach((eachPage) => {
   observer.observe(eachPage);
 });
+
+pages.forEach((eachPage) => {
+  observer.observe(eachPage);
+});
