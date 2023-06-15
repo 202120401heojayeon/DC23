@@ -1,0 +1,278 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  overflow-y: hidden;
+  width: 100vw;
+  height: 100dvh;
+  margin: 0;
+  font-family: system-ui;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  &::after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: aqua;
+    position: fixed;
+    bottom: 200px;
+  }
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.animTrigger {
+  position: relative;
+  &::after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: fuchsia;
+    position: absolute;
+    top: 75%;
+  }
+}
+
+//menu
+
+.stickyWrapper {
+  display: grid;
+  position: relative;
+  grid-template-columns: fit-content(0) 1fr;
+  grid-template-rows: 1fr;
+}
+
+main {
+  z-index: 1;
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+aside {
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  grid-column: 1;
+  grid-row: 1;
+  width: fit-content;
+  height: max(100dvh, $min-height);
+  padding-inline: 1rem 1.5rem;
+  border-radius: 0 1rem 1rem 0;
+  background-color: $surface-transparent;
+  font-size: 0.875rem;
+  backdrop-filter: blur(0.25rem);
+
+  ol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 150ms ease-out;
+      color: $onSurface;
+      font-weight: 600;
+      text-transform: capitalize;
+      gap: 0.75rem;
+
+      &::before {
+        content: "";
+        width: 1rem;
+        height: 1rem;
+        margin-top: 0.125rem;
+        transition: border-color 150ms ease-out,
+          background-color 150ms ease-out;
+        border: 0.125rem solid $onSurface;
+        border-radius: 999999999px;
+      }
+
+      &:hover {
+        color: $accent;
+
+        &::before {
+          border-color: $accent;
+        }
+      }
+
+      &.pressed {
+        color: $accent;
+
+        &::before {
+          border-color: $accent;
+          background-color: $accent;
+        }
+      }
+    }
+  }
+  a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+//section
+
+section {
+  scroll-snap-align: center;
+  overflow: hidden;
+}
+
+section:nth-child(even) {
+  background-color: grey;
+}
+
+.wrapper {
+  width: min(60ch, 100% - 4rem);
+  min-height: max(600px, 100dvh);
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  border: 1px solid red;
+}
+
+#section2 {
+  .animTarget {
+  }
+  &.triggered {
+    .animTarget {
+      animation: wiggle 2s linear infinite;
+    }
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
+  }
+}
+// #section2 {
+//   .animTarget {
+//     transform: scale(0);
+//     transition: transform 500ms ease-out;
+//   }
+//   &.triggered {
+//     .animTarget {
+//       transform: scale(1);
+//     }
+//   }
+// }
+
+#section3 {
+  .content {
+    .animTarget {
+      transform: translateX(100vw);
+      transition: transform 500ms ease-out;
+    }
+    &.triggered {
+      .animTarget {
+        transform: translateX(0);
+      }
+    }
+  }
+}
+
+#section4 {
+  .content.animTarget {
+    transition: background-color 500ms ease-out,
+      border 500ms ease-out;
+  }
+  h2.animTarget {
+    transform: translateX(-100vw);
+    transition: transform 500ms ease-out;
+  }
+  p.animTarget {
+    transform: translateX(100vw);
+    transition: transform 500ms ease-out;
+  }
+  &.triggered {
+    .content.animTarget {
+      background-color: cornflowerblue;
+      border: 0px solid transparent;
+    }
+    h2.animTarget {
+      transform: translateX(0);
+    }
+    p.animTarget {
+      transform: translateX(0);
+    }
+  }
+}
+
+#section5 {
+  .animTarget {
+    transform: scale(0);
+    transition: transform 500ms ease-out;
+  }
+  &.triggered {
+    .animTarget {
+      transform: scale(1);
+    }
+  }
+}
+
+#section6 {
+  .content.animTarget {
+    transition: background-color 500ms ease-out,
+      border 500ms ease-out;
+  }
+  h2.animTarget {
+    transform: translateX(-100vw);
+    transition: transform 500ms ease-out;
+  }
+  p.animTarget {
+    transform: translateX(100vw);
+    transition: transform 500ms ease-out;
+  }
+  &.triggered {
+    .content.animTarget {
+      background-color: cornflowerblue;
+      border: 0px solid transparent;
+    }
+    h2.animTarget {
+      transform: translateX(0);
+    }
+    p.animTarget {
+      transform: translateX(0);
+    }
+  }
+}
