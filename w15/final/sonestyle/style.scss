@@ -134,7 +134,7 @@ section {
 }
 
 section:nth-child(even) {
-  background-color: grey;
+  background-color: rgb(16, 16, 16);
 }
 
 .wrapper {
@@ -147,7 +147,7 @@ section:nth-child(even) {
 }
 
 .content {
-  border: 1px solid red;
+  border: 1px solid rgb(0, 0, 0);
 }
 
 #section2 {

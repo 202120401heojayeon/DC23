@@ -1,0 +1,329 @@
+@import "theme.dark.css"
+  (prefers-color-scheme: dark);
+@import "theme.light.css"
+  (prefers-color-scheme: light);
+
+$wrapper-padding-inline: 2rem;
+$min-height: 2rem;
+$progressBar-height: 1rem;
+$bg: var(--bg);
+$bgVariant: var(--bgVariant);
+$txt: var(--txt);
+$surface-transparent: var(--surface-transparent);
+$surface: var(--surface);
+$onSurface: var(--onSurface);
+$accent: var(--accent);
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.hide {
+  display: none;
+}
+
+html {
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: $bg;
+  color: $txt;
+  font-family: system-ui;
+  font-size: 1rem;
+  line-height: 1.8;
+  background-color: black;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: calc(
+    80ch + 2 * $wrapper-padding-inline
+  );
+  min-height: max(50dvh, $min-height);
+  margin-inline: auto;
+  padding-inline: $wrapper-padding-inline;
+  background-color: black;
+  h2 {
+    color: white;
+    padding: auto;
+    font-weight: lighter;
+    font-size: 15px;
+  }
+  p {
+    color: white;
+    font-weight: 400;
+  }
+}
+
+// nth-child도 있는데 그 차이는 온라인 검색해보시길.
+section:nth-of-type(odd) {
+  background-color: black;
+}
+
+.stickyWrapper {
+  display: grid;
+  position: relative;
+  grid-template-columns: fit-content(0) 1fr;
+  grid-template-rows: 1fr;
+}
+
+main {
+  z-index: 1;
+  grid-column: 1 / span 2;
+  grid-row: 1;
+}
+
+aside {
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  grid-column: 1;
+  grid-row: 1;
+  width: fit-content;
+  height: max(100dvh, $min-height);
+  padding-inline: 1rem 1.5rem;
+  border-radius: 0 1rem 1rem 0;
+  background-color: $surface-transparent;
+  font-size: 0.875rem;
+  backdrop-filter: blur(0.25rem);
+
+  ol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 150ms ease-out;
+      color: $onSurface;
+      font-weight: 600;
+      text-transform: capitalize;
+      gap: 0.75rem;
+
+      &::before {
+        content: "";
+        width: 1rem;
+        height: 1rem;
+        margin-top: 0.125rem;
+        transition: border-color 150ms ease-out,
+          background-color 150ms ease-out;
+        border: 0.125rem solid $onSurface;
+        border-radius: 999999999px;
+      }
+
+      &:hover {
+        color: $accent;
+
+        &::before {
+          border-color: $accent;
+        }
+      }
+
+      &.pressed {
+        color: $accent;
+
+        &::before {
+          border-color: $accent;
+          background-color: $accent;
+        }
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.progressBar {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  grid-column: 1 / span 2;
+  grid-row: 1;
+  width: 120%;
+  height: $progressBar-height;
+  background-color: black;
+
+  .indicator {
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: left;
+    background-color: $accent;
+    inset: 0;
+  }
+}
+
+// footer {
+//   .wrapper {
+//     min-height: max(100dvh, $min-height);
+//   }
+// }
+@media (width < 67.5rem) {
+  .stickyWrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+  }
+
+  main {
+    grid-column: 1;
+    grid-row: 3;
+    width: min(80ch, 100% - 4rem);
+    margin-inline: auto;
+  }
+
+  aside {
+    top: $progressBar-height;
+    grid-column: 1;
+    grid-row: 3;
+    width: 100%;
+    height: fit-content;
+    padding-block: 1rem;
+    padding-inline: unset;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    border-radius: 0 0 1rem 1rem;
+
+    ol {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 3rem;
+
+      a:first-of-type li {
+        margin-left: $wrapper-padding-inline;
+      }
+
+      a:last-of-type li {
+        margin-right: $wrapper-padding-inline;
+      }
+    }
+  }
+
+  .progressBar {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+@media (width < 59.1875rem) {
+  aside {
+    ol {
+      justify-content: flex-start;
+    }
+  }
+}
+
+img,
+video,
+svg {
+  max-width: 60%;
+  padding: 0 0 5rem 2rem;
+
+  margin: auto;
+  display: block;
+}
+
+//애니
+// .animTrigger {
+//   position: relative;
+//   &::after {
+//     content: "";
+//     height: 1px;
+//     width: 100%;
+//     background-color: fuchsia;
+//     position: absolute;
+//     top: 75%;
+//   }
+// }
+
+section {
+  scroll-snap-align: center;
+  overflow: hidden;
+}
+
+// .content {
+//   border: 1px solid rgb(0, 0, 0);
+// }
+
+#section2 {
+  .animTarget {
+  }
+  &.triggered {
+    .animTarget {
+      animation: wiggle 2s linear infinite;
+    }
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
+  }
+}
+
+#section3 {
+  .content.animTarget {
+    transition: background-color 500ms ease-out,
+      border 500ms ease-out;
+  }
+  h2.animTarget {
+    transform: translateX(-100vw);
+    transition: transform 500ms ease-out;
+  }
+  p.animTarget {
+    transform: translateX(100vw);
+    transition: transform 500ms ease-out;
+  }
+  &.triggered {
+    .content.animTarget {
+      background-color: cornflowerblue;
+      border: 0px solid transparent;
+    }
+    h2.animTarget {
+      transform: translateX(0);
+    }
+    p.animTarget {
+      transform: translateX(0);
+    }
+  }
+}
