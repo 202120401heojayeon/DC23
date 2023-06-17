@@ -1,0 +1,310 @@
+@import "theme.dark.css" (prefers-color-scheme: dark);
+@import "theme.light.css" (prefers-color-scheme: light);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.hide {
+  display: none;
+}
+
+html {
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--txt);
+  font-family: system-ui;
+  font-size: 1rem;
+  line-height: 1.8;
+  background-color: black;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: calc(80ch + 4rem);
+  min-height: max(50dvh, 2rem);
+  margin-inline: auto;
+  padding-inline: 2rem;
+  background-color: black;
+}
+.wrapper h2 {
+  color: white;
+  padding: auto;
+  font-weight: lighter;
+  font-size: 23px;
+  font-family: "Parisienne", cursive;
+}
+.wrapper p {
+  color: white;
+  font-weight: 400;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+section:nth-of-type(odd) {
+  background-color: black;
+}
+
+.stickyWrapper {
+  display: grid;
+  position: relative;
+  grid-template-columns: fit-content(0) 1fr;
+  grid-template-rows: 1fr;
+}
+
+main {
+  z-index: 1;
+  grid-column: 1/span 2;
+  grid-row: 1;
+}
+
+aside {
+  position: sticky;
+  z-index: 3;
+  top: 0;
+  grid-column: 1;
+  grid-row: 1;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: max(100dvh, 2rem);
+  padding-inline: 1rem 1.5rem;
+  border-radius: 0 1rem 1rem 0;
+  background-color: rgb(45, 45, 45);
+  font-size: 0.875rem;
+  -webkit-backdrop-filter: blur(0.25rem);
+          backdrop-filter: blur(0.25rem);
+}
+aside ol {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: "Parisienne", cursive;
+}
+aside ol li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 150ms ease-out;
+  color: var(--onSurface);
+  font-weight: 600;
+  text-transform: capitalize;
+  gap: 0.75rem;
+}
+aside ol li::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.125rem;
+  transition: border-color 150ms ease-out, background-color 150ms ease-out;
+  border: 0.125rem solid var(--onSurface);
+  border-radius: 999999999px;
+}
+aside ol li:hover {
+  color: rgb(255, 83, 60);
+}
+aside ol li:hover::before {
+  border-color: rgb(255, 83, 60);
+}
+aside ol li.pressed {
+  color: rgb(255, 83, 60);
+}
+aside ol li.pressed::before {
+  border-color: rgb(255, 83, 60);
+  background-color: rgb(255, 83, 60);
+}
+aside a {
+  text-decoration: none;
+}
+
+.progressBar {
+  position: sticky;
+  z-index: 2;
+  top: 0;
+  grid-column: 1/span 2;
+  grid-row: 1;
+  width: 135%;
+  height: 1rem;
+  background-color: black;
+}
+.progressBar .indicator {
+  position: absolute;
+  transform: scaleX(0);
+  transform-origin: left;
+  background-color: rgb(255, 83, 60);
+  inset: 0;
+}
+
+@media (width < 67.5rem) {
+  .stickyWrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr;
+  }
+  main {
+    grid-column: 1;
+    grid-row: 3;
+    width: min(80ch, 100% - 4rem);
+    margin-inline: auto;
+  }
+  aside {
+    top: 1rem;
+    grid-column: 1;
+    grid-row: 3;
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding-block: 1rem;
+    padding-inline: unset;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border-radius: 0 0 1rem 1rem;
+  }
+  aside::-webkit-scrollbar {
+    display: none;
+  }
+  aside ol {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+  }
+  aside ol a:first-of-type li {
+    margin-left: 2rem;
+  }
+  aside ol a:last-of-type li {
+    margin-right: 2rem;
+  }
+  .progressBar {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+@media (width < 59.1875rem) {
+  aside ol {
+    justify-content: flex-start;
+  }
+}
+img,
+video,
+svg {
+  max-width: 100%;
+  padding: 0 0 5rem 2rem;
+  margin: auto;
+  display: block;
+}
+
+section {
+  scroll-snap-align: center;
+  overflow: hidden;
+  padding-top: 100px;
+}
+
+#section2.triggered .animTarget {
+  animation: wiggle 2s linear infinite;
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+#section3 .content.animTarget {
+  transition: background-color 500ms ease-out, border 500ms ease-out;
+}
+#section3 h2.animTarget {
+  transform: translateX(-100vw);
+  transition: transform 500ms ease-out;
+}
+#section3 p.animTarget {
+  transform: translateX(100vw);
+  transition: transform 500ms ease-out;
+}
+#section3.triggered .content.animTarget {
+  background-color: rgb(0, 0, 0);
+  border: 0px solid transparent;
+}
+#section3.triggered h2.animTarget {
+  transform: translateX(0);
+}
+#section3.triggered p.animTarget {
+  transform: translateX(0);
+}
+
+#section5 .content.animTarget {
+  transition: background-color 500ms ease-out, border 500ms ease-out;
+}
+#section5 h2.animTarget {
+  transform: translateX(100vw);
+  transition: transform 500ms ease-out;
+}
+#section5 p.animTarget {
+  transform: translateX(-100vw);
+  transition: transform 500ms ease-out;
+}
+#section5.triggered .content.animTarget {
+  background-color: rgb(0, 0, 0);
+  border: 0px solid transparent;
+}
+#section5.triggered h2.animTarget {
+  transform: translateX(0);
+}
+#section5.triggered p.animTarget {
+  transform: translateX(0);
+}
+
+#section6.triggered .animTarget {
+  animation: wiggle 2s linear infinite;
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}

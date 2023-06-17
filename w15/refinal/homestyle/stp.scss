@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  // font-family: "Spoqa Han Sans Neo", "sans-serif";
 }
 
 //카드
@@ -10,10 +10,13 @@ img {
   display: block;
 }
 
+html {
+  background-color: rgb(0, 0, 0);
+}
+
 .container {
   margin-inline: auto;
   padding-inline: 2rem;
-  background-color: rgb(36, 36, 36);
 }
 
 @media (width < 37.5rem) {
@@ -41,6 +44,11 @@ img {
     color: white;
     text-align: center;
     line-height: 2.5rem;
+    h2 {
+      font-family: "Parisienne", cursive;
+      font-size: 1.875rem;
+      // font-family: 'Playball', cursive;
+    }
   }
 }
 
@@ -60,7 +68,7 @@ img {
   max-width: 300px;
   transition: transform 300ms ease;
   &__roundBorder {
-    border: 0.0625rem solid #ccc;
+    border: 0.0625rem solid #363636;
     background-color: #ffffff;
     overflow: hidden;
     border-radius: 0.5rem;
@@ -93,6 +101,7 @@ img {
       line-height: 1.75rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
+      font-family: "Playball", cursive;
     }
     p {
       line-height: 1.5rem;
@@ -105,6 +114,8 @@ img {
       -moz-line-clamp: 5;
       -webkit-line-clamp: 5;
       max-height: 7.5rem;
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 14px;
     }
   }
   &__buttons {
@@ -112,6 +123,7 @@ img {
     display: flex;
     justify-content: end;
     gap: 0.5rem;
+    font-family: "Playball", cursive;
   }
   &:hover {
     transform: translateY(-0.125rem) scale(1.01);
@@ -138,7 +150,7 @@ img {
   border-radius: 62.4375rem;
   transition: background-color 250ms ease;
   &:hover {
-    background-color: cornflowerblue;
+    background-color: rgb(255, 83, 60);
   }
   &--type {
     &-text {
@@ -148,7 +160,7 @@ img {
       transition: color 250ms ease;
       &:hover {
         background-color: unset;
-        color: cornflowerblue;
+        color: rgb(255, 83, 60);
       }
     }
   }
@@ -156,5 +168,5 @@ img {
 
 .button a {
   text-decoration-line: none;
+  color: white;
 }
-?

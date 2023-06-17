@@ -54,15 +54,16 @@ body {
     color: white;
     padding: auto;
     font-weight: lighter;
-    font-size: 15px;
+    font-size: 23px;
+    font-family: "Parisienne", cursive;
   }
   p {
     color: white;
     font-weight: 400;
+    font-family: "Noto Sans KR", sans-serif;
   }
 }
 
-// nth-child도 있는데 그 차이는 온라인 검색해보시길.
 section:nth-of-type(odd) {
   background-color: black;
 }
@@ -90,8 +91,9 @@ aside {
   height: max(100dvh, $min-height);
   padding-inline: 1rem 1.5rem;
   border-radius: 0 1rem 1rem 0;
-  background-color: $surface-transparent;
+  background-color: rgb(45, 45, 45);
   font-size: 0.875rem;
+
   backdrop-filter: blur(0.25rem);
 
   ol {
@@ -102,7 +104,7 @@ aside {
     margin: 0;
     padding: 0;
     list-style: none;
-
+    font-family: "Parisienne", cursive;
     li {
       display: flex;
       align-items: center;
@@ -125,19 +127,19 @@ aside {
       }
 
       &:hover {
-        color: $accent;
+        color: rgb(255, 83, 60);
 
         &::before {
-          border-color: $accent;
+          border-color: rgb(255, 83, 60);
         }
       }
 
       &.pressed {
-        color: $accent;
+        color: rgb(255, 83, 60);
 
         &::before {
-          border-color: $accent;
-          background-color: $accent;
+          border-color: rgb(255, 83, 60);
+          background-color: rgb(255, 83, 60);
         }
       }
     }
@@ -162,7 +164,7 @@ aside {
     position: absolute;
     transform: scaleX(0);
     transform-origin: left;
-    background-color: $accent;
+    background-color: rgb(255, 83, 60);
     inset: 0;
   }
 }
@@ -236,7 +238,7 @@ aside {
 img,
 video,
 svg {
-  max-width: 60%;
+  max-width: 100%;
   padding: 0 0 5rem 2rem;
 
   margin: auto;
@@ -259,6 +261,7 @@ svg {
 section {
   scroll-snap-align: center;
   overflow: hidden;
+  padding-top: 100px;
 }
 
 // .content {
@@ -316,7 +319,7 @@ section {
   }
   &.triggered {
     .content.animTarget {
-      background-color: cornflowerblue;
+      background-color: rgb(0, 0, 0);
       border: 0px solid transparent;
     }
     h2.animTarget {
@@ -325,5 +328,68 @@ section {
     p.animTarget {
       transform: translateX(0);
     }
+  }
+}
+
+#section5 {
+  .content.animTarget {
+    transition: background-color 500ms ease-out,
+      border 500ms ease-out;
+  }
+  h2.animTarget {
+    transform: translateX(100vw);
+    transition: transform 500ms ease-out;
+  }
+  p.animTarget {
+    transform: translateX(-100vw);
+    transition: transform 500ms ease-out;
+  }
+  &.triggered {
+    .content.animTarget {
+      background-color: rgb(0, 0, 0);
+      border: 0px solid transparent;
+    }
+    h2.animTarget {
+      transform: translateX(0);
+    }
+    p.animTarget {
+      transform: translateX(0);
+    }
+  }
+}
+
+#section6 {
+  .animTarget {
+  }
+  &.triggered {
+    .animTarget {
+      animation: wiggle 2s linear infinite;
+    }
+  }
+}
+
+@keyframes wiggle {
+  0%,
+  7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%,
+  100% {
+    transform: rotateZ(0);
   }
 }

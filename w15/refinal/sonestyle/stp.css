@@ -39,11 +39,13 @@ body {
   color: white;
   padding: auto;
   font-weight: lighter;
-  font-size: 15px;
+  font-size: 23px;
+  font-family: "Parisienne", cursive;
 }
 .wrapper p {
   color: white;
   font-weight: 400;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 section:nth-of-type(odd) {
@@ -74,7 +76,7 @@ aside {
   height: max(100dvh, 2rem);
   padding-inline: 1rem 1.5rem;
   border-radius: 0 1rem 1rem 0;
-  background-color: var(--surface-transparent);
+  background-color: rgb(45, 45, 45);
   font-size: 0.875rem;
   -webkit-backdrop-filter: blur(0.25rem);
           backdrop-filter: blur(0.25rem);
@@ -87,6 +89,7 @@ aside ol {
   margin: 0;
   padding: 0;
   list-style: none;
+  font-family: "Parisienne", cursive;
 }
 aside ol li {
   display: flex;
@@ -108,17 +111,17 @@ aside ol li::before {
   border-radius: 999999999px;
 }
 aside ol li:hover {
-  color: var(--accent);
+  color: rgb(255, 83, 60);
 }
 aside ol li:hover::before {
-  border-color: var(--accent);
+  border-color: rgb(255, 83, 60);
 }
 aside ol li.pressed {
-  color: var(--accent);
+  color: rgb(255, 83, 60);
 }
 aside ol li.pressed::before {
-  border-color: var(--accent);
-  background-color: var(--accent);
+  border-color: rgb(255, 83, 60);
+  background-color: rgb(255, 83, 60);
 }
 aside a {
   text-decoration: none;
@@ -138,7 +141,7 @@ aside a {
   position: absolute;
   transform: scaleX(0);
   transform-origin: left;
-  background-color: var(--accent);
+  background-color: rgb(255, 83, 60);
   inset: 0;
 }
 
@@ -195,7 +198,7 @@ aside a {
 img,
 video,
 svg {
-  max-width: 60%;
+  max-width: 100%;
   padding: 0 0 5rem 2rem;
   margin: auto;
   display: block;
@@ -204,6 +207,7 @@ svg {
 section {
   scroll-snap-align: center;
   overflow: hidden;
+  padding-top: 100px;
 }
 
 #section2.triggered .animTarget {
@@ -245,7 +249,7 @@ section {
   transition: transform 500ms ease-out;
 }
 #section3.triggered .content.animTarget {
-  background-color: cornflowerblue;
+  background-color: rgb(0, 0, 0);
   border: 0px solid transparent;
 }
 #section3.triggered h2.animTarget {
@@ -253,4 +257,54 @@ section {
 }
 #section3.triggered p.animTarget {
   transform: translateX(0);
+}
+
+#section5 .content.animTarget {
+  transition: background-color 500ms ease-out, border 500ms ease-out;
+}
+#section5 h2.animTarget {
+  transform: translateX(100vw);
+  transition: transform 500ms ease-out;
+}
+#section5 p.animTarget {
+  transform: translateX(-100vw);
+  transition: transform 500ms ease-out;
+}
+#section5.triggered .content.animTarget {
+  background-color: rgb(0, 0, 0);
+  border: 0px solid transparent;
+}
+#section5.triggered h2.animTarget {
+  transform: translateX(0);
+}
+#section5.triggered p.animTarget {
+  transform: translateX(0);
+}
+
+#section6.triggered .animTarget {
+  animation: wiggle 2s linear infinite;
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
 }
